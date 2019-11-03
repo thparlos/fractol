@@ -3,33 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelkhay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: thparlos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 14:04:39 by abelkhay          #+#    #+#             */
-/*   Updated: 2019/07/05 14:05:39 by abelkhay         ###   ########.fr       */
+/*   Created: 2018/11/14 19:39:59 by thparlos          #+#    #+#             */
+/*   Updated: 2018/11/18 15:54:52 by thparlos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	size_t i;
-	size_t j;
+	size_t			i;
+	char			*j;
+	char			*k;
 
-	if (*little == '\0')
-		return ((char*)big);
-	i = 0;
-	while (big[i] && i < len)
+	if (!*s2)
+		return ((char *)s1);
+	while (n-- && *s1)
 	{
-		j = 0;
-		while ((big[i + j] == little[j]) && (i + j) < len)
+		if (*s1 == *s2)
 		{
-			j++;
-			if (little[j] == '\0')
-				return ((char*)big + i);
+			i = n;
+			j = (char *)s1 + 1;
+			k = (char *)s2 + 1;
+			while (i-- && *j && *k && *j == *k)
+			{
+				++j;
+				++k;
+			}
+			if (!*k)
+				return ((char *)s1);
 		}
-		i++;
+		++s1;
 	}
 	return (NULL);
 }

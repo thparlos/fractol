@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abelkhay <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: thparlos <thparlos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/07/05 14:09:52 by abelkhay          #+#    #+#              #
-#    Updated: 2019/07/05 14:09:56 by abelkhay         ###   ########.fr        #
+#    Created: 2019/11/01 22:23:36 by thparlos          #+#    #+#              #
+#    Updated: 2019/11/01 23:24:33 by thparlos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,7 @@ SRC=	./src/main.c\
 		./src/mandelbrot.c\
 		./src/fractol.c\
 		./src/julia.c\
-		./src/burningship.c\
-		./src/douady.c\
-		./src/octopus.c\
-		./src/siegel.c\
-		./src/shuriken.c\
-		./src/lightning.c
+		./src/burningship.c
 
 OBJ= $(SRCS:.c=.o)
 LIBFT= ./libft/libft.a

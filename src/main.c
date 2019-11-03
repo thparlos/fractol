@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelkhay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: thparlos <thparlos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 14:13:34 by abelkhay          #+#    #+#             */
-/*   Updated: 2019/07/05 10:34:00 by abelkhay         ###   ########.fr       */
+/*   Created: 2019/11/01 22:27:32 by thparlos          #+#    #+#             */
+/*   Updated: 2019/11/01 23:50:05 by thparlos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ int		main(int argc, char **argv)
 	if (argc != 2 || init_fract(ptr, argv[1]) != 1)
 	{
 		ft_putstr("./fractol mandelbrot\n./fractol julia\n");
-		ft_putstr("./fractol siegel\n./fractol douady\n");
-		ft_putstr("./fractol octopus\n./fractol burningship\n");
-		ft_putstr("./fractol shuriken\n./fractol lightning\n");
+		ft_putstr("./fractol burningship\n");
 		exit(0);
 	}
 	fractol(ptr);

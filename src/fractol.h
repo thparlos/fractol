@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelkhay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: thparlos <thparlos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 10:24:45 by abelkhay          #+#    #+#             */
-/*   Updated: 2019/07/05 10:24:48 by abelkhay         ###   ########.fr       */
+/*   Created: 2019/11/01 22:27:45 by thparlos          #+#    #+#             */
+/*   Updated: 2019/11/01 23:59:40 by thparlos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,24 @@ typedef struct	s_fractol
 	t_img	*img;
 }				t_fractol;
 
+void			init_burningship(t_fractol *ptr, int mode);
+void			launch_burningship(t_fractol *ptr);
 int				fractol(t_fractol *ptr);
 int				init(t_fractol *ptr);
 int				img_to_win(t_fractol *ptr);
 void			init_mandelbrot(t_fractol *ptr, int mode);
 void			init_julia(t_fractol *ptr, int mode);
-void			init_burningship(t_fractol *ptr, int mode);
 int				init_fract(t_fractol *ptr, char *fractal);
-void			init_douady(t_fractol *ptr, int mode);
-void			init_octopus(t_fractol *ptr, int mode);
-void			init_siegel(t_fractol *ptr, int mode);
-void			init_shuriken(t_fractol *ptr, int mode);
-void			init_lightning(t_fractol *ptr, int mode);
+int				var_julia(int x, int y, t_fractol *ptr);
+void			launch_mandelbrot(t_fractol *ptr);
+void			init_mandelbrot(t_fractol *ptr, int mode);
+void			launch_julia(t_fractol *ptr);
+void			init_julia(t_fractol *ptr, int mode);
+void			errors(void);
+int				init(t_fractol *ptr);
+int				img_to_win(t_fractol *ptr);
+void			launch_fractal(t_fractol *ptr);
+void			draw(int x, int y, int color, t_fractol *ptr);
 int				var_julia(int x, int y, t_fractol *ptr);
 
 #		endif

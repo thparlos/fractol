@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelkhay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: thparlos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 13:14:11 by abelkhay          #+#    #+#             */
-/*   Updated: 2019/07/05 13:14:15 by abelkhay         ###   ########.fr       */
+/*   Created: 2018/11/16 11:35:53 by thparlos          #+#    #+#             */
+/*   Updated: 2018/11/16 11:39:53 by thparlos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,16 @@
 
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	if ((*alst)->next != NULL)
-		ft_lstdel(&(*alst)->next, del);
-	ft_lstdelone(&(*alst), del);
+	t_list	*a_effacer;
+	t_list	*prochain_maillon;
+
+	a_effacer = *alst;
+	while (a_effacer)
+	{
+		prochain_maillon = a_effacer->next;
+		del(a_effacer->content, a_effacer->content_size);
+		free(a_effacer);
+		a_effacer = prochain_maillon;
+	}
+	*alst = NULL;
 }

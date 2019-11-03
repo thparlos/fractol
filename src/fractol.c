@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelkhay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: thparlos <thparlos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 10:21:37 by abelkhay          #+#    #+#             */
-/*   Updated: 2019/07/05 10:25:11 by abelkhay         ###   ########.fr       */
+/*   Created: 2019/11/01 22:29:22 by thparlos          #+#    #+#             */
+/*   Updated: 2019/11/01 23:29:08 by thparlos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,6 @@ void	init_ptr(t_fractol *ptr)
 		init_julia(ptr, 1);
 	else if (ptr->fractal == 3)
 		init_burningship(ptr, 1);
-	else if (ptr->fractal == 4)
-		init_douady(ptr, 1);
-	else if (ptr->fractal == 5)
-		init_octopus(ptr, 1);
-	else if (ptr->fractal == 6)
-		init_siegel(ptr, 1);
-	else if (ptr->fractal == 7)
-		init_shuriken(ptr, 1);
-	else if (ptr->fractal == 8)
-		init_lightning(ptr, 1);
 }
 
 int		init_fract(t_fractol *ptr, char *fractal)
@@ -86,16 +76,6 @@ int		init_fract(t_fractol *ptr, char *fractal)
 		ptr->fractal = 2;
 	else if (ft_strcmp("burningship", fractal) == 0)
 		ptr->fractal = 3;
-	else if (ft_strcmp("douady", fractal) == 0)
-		ptr->fractal = 4;
-	else if (ft_strcmp("octopus", fractal) == 0)
-		ptr->fractal = 5;
-	else if (ft_strcmp("siegel", fractal) == 0)
-		ptr->fractal = 6;
-	else if (ft_strcmp("shuriken", fractal) == 0)
-		ptr->fractal = 7;
-	else if (ft_strcmp("lightning", fractal) == 0)
-		ptr->fractal = 8;
 	else
 		return (0);
 	init_ptr(ptr);
@@ -106,7 +86,7 @@ int		fractol(t_fractol *ptr)
 {
 	init(ptr);
 	ft_putstr("r = changer palette de couleur\nfleches = deplacements\
-			\nmolette = zoom");
+			\nmolette = zoom\n");
 	mlx_hook(ptr->win_ptr, 2, 3, key_function, ptr);
 	mlx_hook(ptr->win_ptr, 6, 5, var_julia, ptr);
 	mlx_mouse_hook(ptr->win_ptr, zoom_function, ptr);

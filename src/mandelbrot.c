@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: thparlos <thparlos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 14:12:52 by abelkhay          #+#    #+#             */
-/*   Updated: 2019/10/29 04:48:26 by thparlos         ###   ########.fr       */
+/*   Created: 2019/11/01 22:33:22 by thparlos          #+#    #+#             */
+/*   Updated: 2019/11/03 20:12:09 by thparlos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mandelbrot.h"
+#include "fractol.h"
 
 void	init_mandelbrot(t_fractol *ptr, int mode)
 {
@@ -21,10 +21,6 @@ void	init_mandelbrot(t_fractol *ptr, int mode)
 		ptr->x2 = 0.6;
 		ptr->y1 = -1.2;
 		ptr->y2 = 1.2;
-	//	ptr->x1 = -3.0;
-	//	ptr->x2 = 2.6;
-	//	ptr->y1 = -2.0;
-	//	ptr->y2 = 1.2;
 		ptr->zoom_x = 150;
 		ptr->zoom_y = 150;
 		ptr->c_r = ptr->x / ptr->zoom_x + ptr->x1;

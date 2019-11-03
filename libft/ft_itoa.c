@@ -3,61 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelkhay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: thparlos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 13:13:33 by abelkhay          #+#    #+#             */
-/*   Updated: 2019/07/05 13:13:36 by abelkhay         ###   ########.fr       */
+/*   Created: 2018/11/14 19:55:22 by thparlos          #+#    #+#             */
+/*   Updated: 2018/11/18 16:11:01 by thparlos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_cpyitoa(char *strint, long int len, long int n2, int neg)
+static long		ft_digitnb(int n)
 {
-	int i;
+	long		size;
 
-	i = 0;
-	if (neg == 1)
+	if (n == 0)
+		return (1);
+	size = 0;
+	if (n < 0)
 	{
-		strint[i] = '-';
-		i++;
+		size++;
+		n = -n;
 	}
-	while (len >= 1)
+	while (n != 0)
 	{
-		strint[i] = (n2 / len) + '0';
-		n2 = n2 % len;
-		len = len / 10;
-		i++;
+		n /= 10;
+		size++;
 	}
-	strint[i] = '\0';
-	return (strint);
+	return (size++);
 }
 
-char		*ft_itoa(int n)
+static int		ft_sign(int n)
 {
-	int			i;
-	long int	n2;
-	char		*strint;
-	int			neg;
-	long int	len;
+	if (n < 0)
+		return (1);
+	return (0);
+}
 
-	i = 0;
-	n2 = n;
-	neg = 0;
-	len = 1;
-	if (n2 < 0)
-	{
-		neg = 1;
-		n2 = n2 * -1;
-	}
-	while (n2 / len >= 10)
-	{
-		i++;
-		len = len * 10;
-	}
-	strint = (char *)malloc(sizeof(char) * i + neg + 2);
-	if (!strint)
+char			*ft_itoa(int n)
+{
+	long		n_long;
+	long		length;
+	char		*fresh;
+
+	n_long = n;
+	length = ft_digitnb(n_long);
+	fresh = (char *)malloc((length + 1) * sizeof(char));
+	if (!fresh)
 		return (NULL);
-	strint = ft_cpyitoa(strint, len, n2, neg);
-	return (strint);
+	fresh[length] = '\0';
+	length--;
+	if (n_long < 0)
+		n_long = -n_long;
+	while (length >= 0)
+	{
+		fresh[length] = (n_long % 10) + '0';
+		length--;
+		n_long /= 10;
+	}
+	if (ft_sign(n))
+		fresh[0] = '-';
+	return (fresh);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelkhay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: thparlos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 13:54:36 by abelkhay          #+#    #+#             */
-/*   Updated: 2019/07/05 13:54:39 by abelkhay         ###   ########.fr       */
+/*   Created: 2018/11/16 11:52:21 by thparlos          #+#    #+#             */
+/*   Updated: 2018/11/16 11:53:55 by thparlos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,27 @@
 
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list *newlist;
+	t_list	*tmp;
+	t_list	*lstnew;
+	t_list	*res;
 
-	if (lst)
+	lstnew = NULL;
+	while (lst)
 	{
-		newlist = (t_list*)malloc(sizeof(lst));
-		if (!newlist)
-			return (NULL);
-		newlist = f(lst);
-		newlist->next = ft_lstmap(lst->next, f);
-		return (newlist);
+		tmp = f(lst);
+		if (!lstnew)
+		{
+			lstnew = tmp;
+			res = lstnew;
+			lstnew->next = NULL;
+		}
+		else
+		{
+			lstnew->next = tmp;
+			tmp->next = NULL;
+			lstnew = lstnew->next;
+		}
+		lst = lst->next;
 	}
-	return (NULL);
+	return (res);
 }

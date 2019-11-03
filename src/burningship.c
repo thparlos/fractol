@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   burningship.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelkhay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: thparlos <thparlos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 10:23:35 by abelkhay          #+#    #+#             */
-/*   Updated: 2019/07/05 10:23:42 by abelkhay         ###   ########.fr       */
+/*   Created: 2019/11/01 23:23:00 by thparlos          #+#    #+#             */
+/*   Updated: 2019/11/01 23:48:27 by thparlos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "burningship.h"
+#include "fractol.h"
 
 void	init_burningship(t_fractol *ptr, int mode)
 {

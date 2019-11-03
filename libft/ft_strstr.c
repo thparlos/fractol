@@ -3,33 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelkhay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: thparlos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 14:06:38 by abelkhay          #+#    #+#             */
-/*   Updated: 2019/07/05 14:06:40 by abelkhay         ###   ########.fr       */
+/*   Created: 2018/08/03 14:29:25 by thparlos          #+#    #+#             */
+/*   Updated: 2018/11/18 15:56:45 by thparlos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *big, const char *little)
+char	*ft_strstr(const char *s1, const char *s2)
 {
-	size_t i;
-	size_t j;
+	size_t		len;
 
-	if (*little == '\0')
-		return ((char*)big);
-	i = 0;
-	while (big[i])
+	if (*s2 == '\0')
+		return ((char *)s1);
+	if (!s2)
+		return ((char *)s1);
+	len = ft_strlen(s2);
+	while (*s1)
 	{
-		j = 0;
-		while (big[i + j] == little[j])
-		{
-			j++;
-			if (little[j] == '\0')
-				return ((char*)big + i);
-		}
-		i++;
+		if (ft_strncmp(s1, s2, len) == 0)
+			return ((char *)s1);
+		s1++;
 	}
 	return (NULL);
 }

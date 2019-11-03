@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   ft_sort_integer_table.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelkhay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: thparlos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 13:11:35 by abelkhay          #+#    #+#             */
-/*   Updated: 2019/07/05 13:11:38 by abelkhay         ###   ########.fr       */
+/*   Created: 2018/08/01 19:35:39 by thparlos          #+#    #+#             */
+/*   Updated: 2018/11/16 10:47:41 by thparlos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_intlen(int i)
+void	ft_sort_integer_table(int *tab, int size)
 {
-	size_t len;
+	int i;
+	int tmp;
 
-	len = 1;
-	if (i < 0)
+	i = 0;
+	while (i + 1 < size)
 	{
-		len++;
-		i = -i;
+		while (tab[i] > tab[i + 1])
+		{
+			tmp = tab[i + 1];
+			tab[i + 1] = tab[i];
+			tab[i] = tmp;
+			i = 0;
+		}
+		i++;
 	}
-	while (i /= 10)
-		len++;
-	return (len);
 }

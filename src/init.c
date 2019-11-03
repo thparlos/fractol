@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelkhay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: thparlos <thparlos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 10:26:37 by abelkhay          #+#    #+#             */
-/*   Updated: 2019/10/29 02:33:39 by thparlos         ###   ########.fr       */
+/*   Created: 2019/11/01 22:30:25 by thparlos          #+#    #+#             */
+/*   Updated: 2019/11/01 23:54:51 by thparlos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "init.h"
+#include "fractol.h"
 
 int		var_julia(int x, int y, t_fractol *ptr)
 {
@@ -44,21 +44,12 @@ void	launch_fractal(t_fractol *ptr)
 		launch_julia(ptr);
 	else if (ptr->fractal == 3)
 		launch_burningship(ptr);
-	else if (ptr->fractal == 4)
-		launch_douady(ptr);
-	else if (ptr->fractal == 5)
-		launch_octopus(ptr);
-	else if (ptr->fractal == 6)
-		launch_siegel(ptr);
-	else if (ptr->fractal == 7)
-		launch_shuriken(ptr);
-	else if (ptr->fractal == 8)
-		launch_lightning(ptr);
 }
 
 int		img_to_win(t_fractol *ptr)
 {
-	if (!(ptr->img->img_ptr = mlx_new_image(ptr->mlx_ptr, ptr->res_width, ptr->res_height)))
+	if (!(ptr->img->img_ptr = mlx_new_image(ptr->mlx_ptr, ptr->res_width,\
+ptr->res_height)))
 		errors();
 	if (!(ptr->img->data = mlx_get_data_addr(ptr->img->img_ptr, &ptr->img->bpp\
 					, &ptr->img->size_l, &ptr->img->endian)))

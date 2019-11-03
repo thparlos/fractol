@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelkhay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: thparlos <thparlos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 14:13:02 by abelkhay          #+#    #+#             */
-/*   Updated: 2019/07/05 10:25:36 by abelkhay         ###   ########.fr       */
+/*   Created: 2019/11/01 22:32:16 by thparlos          #+#    #+#             */
+/*   Updated: 2019/11/01 23:48:35 by thparlos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "julia.h"
+#include "fractol.h"
 
 void	init_julia(t_fractol *ptr, int mode)
 {
